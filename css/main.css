@@ -1,0 +1,31 @@
+html {
+  box-sizing: border-box;
+}
+
+body {
+  background: lightgrey;
+  height: 900px;
+  width: 900px;
+}
+
+#container {
+  margin-top: 2%;
+  margin-left: 25%;
+}
+
+.mark {
+  text-align: center;
+  /*margin-top: 50%;*/
+  font-size: 15em;
+}
+
+
+.box {
+  text-align: center;
+  font-size: 15em;
+  float: left;
+  display: inline-block;
+  height: 290px;
+  width: 290px;
+  border: 3px solid black;
+}
