@@ -1,21 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-var container = document.querySelectorAll('div.box');
-var toggle = document.querySelector('div.toggle.o');
-var boxOne = document.querySelector('div.box.one');
-var boxTwo = document.querySelector('div.box.two');
-var boxThree = document.querySelector('div.box.three');
-var boxFour = document.querySelector('div.box.four');
-var boxFive = document.querySelector('div.box.five');
-var boxSix = document.querySelector('div.box.six');
-var boxSeven = document.querySelector('div.box.seven');
-var boxEight = document.querySelector('div.box.eight');
-var boxNine = document.querySelector('div.box.nine');
+var c = document.querySelectorAll('div.box');
 var inputO = 'o';
 var inputX = 'x';
 var input = 'o';
-var player1Counter = 0;
-var player2Counter = 0;
+var drawCounter = 0;
 
 // Allow click detection from parent container
 var clickBox = document.querySelector('#container');
@@ -28,28 +17,58 @@ clickBox.addEventListener('click', function(e) {
     }  else if (input === 'x') {
       input = 'o';
     }
-
-    e.target.innerHTML = input;
-    checkWinner();
-    // var h = document.createElement("h1");
-    // closestBox.appendChild(h);
-    // h.innerHTML = input;
-    // closestBox.classList.toggle('box-clicked');
- }
+    if (e.target.innerHTML === 'o' || e.target.innerHTML === 'x') {
+      window.alert('Please choose an open square.')
+      if (input === 'o') {
+        input = 'x';
+      }  else if (input === 'x') {
+        input = 'o';
+      }
+    } else {
+        e.target.innerHTML = input;
+        drawCounter += 1;
+    }
+  setTimeout(function() { checkWinner(); }, 1000);
+}
 });
 
 // Calculate Winner
 
 function checkWinner() {
-  container.forEach(function(c) {
     if (c[0].innerHTML === 'o' && c[1].innerHTML === 'o' && c[2].innerHTML === 'o' ) {
       window.alert('o has won!');
+    } else if (c[3].innerHTML === 'o' && c[4].innerHTML === 'o' && c[5].innerHTML === 'o' ) {
+      window.alert('o has won!');
+    } else if (c[6].innerHTML === 'o' && c[7].innerHTML === 'o' && c[8].innerHTML === 'o' ) {
+      window.alert('o has won!');
+    } else if (c[0].innerHTML === 'o' && c[3].innerHTML === 'o' && c[6].innerHTML === 'o' ) {
+      window.alert('o has won!');
+    } else if (c[1].innerHTML === 'o' && c[4].innerHTML === 'o' && c[7].innerHTML === 'o' ) {
+      window.alert('o has won!');
+    } else if (c[2].innerHTML === 'o' && c[5].innerHTML === 'o' && c[8].innerHTML === 'o' ) {
+      window.alert('o has won!');
+    } else if (c[2].innerHTML === 'o' && c[4].innerHTML === 'o' && c[6].innerHTML === 'o' ) {
+      window.alert('o has won!');
+    } else if (c[0].innerHTML === 'o' && c[4].innerHTML === 'o' && c[8].innerHTML === 'o' ) {
+      window.alert('o has won!');
+    } else if (c[3].innerHTML === 'x' && c[4].innerHTML === 'x' && c[5].innerHTML === 'x' ) {
+      window.alert('x has won!');
+    } else if (c[6].innerHTML === 'x' && c[7].innerHTML === 'x' && c[8].innerHTML === 'x' ) {
+      window.alert('x has won!');
+    } else if (c[0].innerHTML === 'x' && c[3].innerHTML === 'x' && c[6].innerHTML === 'x' ) {
+      window.alert('x has won!');
+    } else if (c[1].innerHTML === 'x' && c[4].innerHTML === 'x' && c[7].innerHTML === 'x' ) {
+      window.alert('x has won!');
+    } else if (c[2].innerHTML === 'x' && c[5].innerHTML === 'x' && c[8].innerHTML === 'x' ) {
+      window.alert('x has won!');
+    } else if (c[2].innerHTML === 'x' && c[4].innerHTML === 'x' && c[6].innerHTML === 'x' ) {
+      window.alert('x has won!');
+    } else if (c[0].innerHTML === 'x' && c[4].innerHTML === 'x' && c[8].innerHTML === 'x' ) {
+      window.alert('x has won!');
+    } else if (c[0].innerHTML === 'x' && c[1].innerHTML === 'x' && c[2].innerHTML === 'x' ) {
+      window.alert('x has won!');
+    } else if (drawCounter === 9) {
+      window.alert('Draw Game!');
     }
-  });
 };
-
-
-
-
-
 });
